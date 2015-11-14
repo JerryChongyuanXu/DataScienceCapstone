@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Final Slidify Data Science Capstone</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Final Slidify Data Science Capstone">
+  <meta name="author" content="Chongyuan Xu">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Final Slidify Data Science Capstone</h1>
+    <h2>A Method to Predict Stars by a Review of a Business</h2>
+    <p>Chongyuan Xu<br/>Postdoctor</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>The Questions to Answer</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The following table demonstrates the number of each stars rated by customers from the historical review data. </p>
+
+<pre><code>## 
+##      1      2      3      4      5 
+## 159811 140608 222719 466599 579527
+</code></pre>
+
+<p>So it is intersting to find what is the relationship between the review and its rate? What are the most frequent positive and negative words in the reviews? </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>The Most Frequent Positive and Negative Words</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>I use NLP algorithms to find the common words and they can be seen in the following barplots. </p>
+
+<p><img src="assets/fig/unnamed-chunk-2-1.png" alt="plot of chunk unnamed-chunk-2"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>The Grade Predicted by any Review Text</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>I create the word frequency matrix first and then design an algorithm based on SVM to predict the grade by text data according to machine learning techniques. </p>
+
+<pre><code>## Confusion Matrix and Statistics
+## 
+##           Reference
+## Prediction good medium poor
+##     good   2444    210  105
+##     medium  336    192   89
+##     poor    554    278  793
+## 
+## Overall Statistics
+##                                           
+##                Accuracy : 0.6857          
+##                  95% CI : (0.6726, 0.6985)
+##     No Information Rate : 0.6667          
+##     P-Value [Acc &gt; NIR] : 0.002207        
+##                                           
+##                   Kappa : 0.4298          
+##  Mcnemar&#39;s Test P-Value : &lt; 2.2e-16       
+## 
+## Statistics by Class:
+## 
+##                      Class: good Class: medium Class: poor
+## Sensitivity               0.7331       0.28235      0.8034
+## Specificity               0.8110       0.90164      0.7927
+## Pos Pred Value            0.8858       0.31118      0.4880
+## Neg Pred Value            0.6030       0.88869      0.9425
+## Prevalence                0.6667       0.13597      0.1974
+## Detection Rate            0.4887       0.03839      0.1586
+## Detection Prevalence      0.5517       0.12338      0.3249
+## Balanced Accuracy         0.7720       0.59200      0.7981
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Results and Future Works</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>It is seen that the accuracy is just 70 percent, although it is the highest algorithm among my experimental results. To be honest, this is not a bad result. However, we still need to research some new tools to improve the accuracy. </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='The Questions to Answer'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='The Most Frequent Positive and Negative Words'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='The Grade Predicted by any Review Text'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Results and Future Works'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>

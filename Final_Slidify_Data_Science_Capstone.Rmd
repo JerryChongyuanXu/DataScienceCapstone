@@ -1,0 +1,56 @@
+---
+title: "Final Slidify Data Science Capstone"
+author: "Chongyuan Xu"
+highlighter: highlight.js
+output: pdf_document
+job: Postdoctor
+knit: slidify::knit2slides
+mode: selfcontained
+hitheme: tomorrow
+subtitle: A Method to Predict Stars by a Review of a Business
+framework: io2012
+widgets: []
+---
+
+## The Questions to Answer
+
+The following table demonstrates the number of each stars rated by customers from the historical review data. 
+
+```{r, echo = FALSE}
+table(review$stars)
+```
+
+So it is intersting to find what is the relationship between the review and its rate? What are the most frequent positive and negative words in the reviews? 
+
+--- .class #id 
+
+## The Most Frequent Positive and Negative Words
+
+I use NLP algorithms to find the common words and they can be seen in the following barplots. 
+
+```{r, echo = FALSE}
+par(mfrow = c(2, 2))
+barplot(singlePositive[1 : min(10, length(singlePositive))], main = "Top Frequent Positive Single Words", cex.main = 1, cex.axis = 0.75, las = 2)
+barplot(singleNegative[1 : min(10, length(singleNegative))], main = "Top Frequent Negative Single Words", cex.main = 1, cex.axis = 0.75, las = 2)
+barplot(doublePositive[1 : min(10, length(doublePositive))], main = "Top Frequent Positive Double Words", cex.main = 1, cex.axis = 0.75, las = 2)
+barplot(doubleNegative[1 : min(10, length(doubleNegative))], main = "Top Frequency Negative Double Words", cex.main = 1, cex.axis = 0.75, las = 2)
+```
+
+--- .class #id
+
+## The Grade Predicted by any Review Text
+
+I create the word frequency matrix first and then design an algorithm based on SVM to predict the grade by text data according to machine learning techniques. 
+
+```{r, echo = FALSE}
+confusionMatrix(predict, data$stars)
+```
+
+--- .class #id
+
+## Results and Future Works
+
+It is seen that the accuracy is just 70 percent, although it is the highest algorithm among my experimental results. To be honest, this is not a bad result. However, we still need to research some new tools to improve the accuracy. 
+
+
+
